@@ -35,7 +35,7 @@ func main() {
 
   myIpAddr, err := publicip.GetIP()
   if err != nil {
-    fmt.Printf("Error getting IP address: %s", err)
+    fmt.Printf("Error getting IP address: %s\n", err)
   } else {
     fmt.Printf("Public IP address is: %s", myIpAddr)
   }
