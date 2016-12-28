@@ -1,0 +1,3 @@
+package: github.com/polera/go-publicip
+import:
+- package: github.com/miekg/dns
