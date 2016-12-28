@@ -2,6 +2,8 @@
 
 This package returns the public facing IP address of the calling client (a la https://icanhazip.com, but from Go!)
 
+ [![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](http://godoc.org/github.com/polera/publicip) [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/polera/publicip/master/LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/polera/publicip)](https://goreportcard.com/report/github.com/polera/publicip)
+
 Author
 ==
 James Polera <james@uncryptic.com>
