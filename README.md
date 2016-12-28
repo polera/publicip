@@ -18,6 +18,7 @@ Credits
 This package was inspired by both:
 
 [public-ip (nodejs)](https://github.com/sindresorhus/public-ip/blob/master/index.js)
+
 [OpenDNS::MyIP (Perl)](https://metacpan.org/pod/OpenDNS::MyIP)
 
 Example
