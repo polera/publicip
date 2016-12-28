@@ -8,6 +8,6 @@ import (
 func TestGetAddress(t *testing.T) {
 	_, err := GetIP()
 	if err != nil {
-		fmt.Errorf("Error: %s\n", err)
+		panic(fmt.Errorf("Error: %s\n", err))
 	}
 }
