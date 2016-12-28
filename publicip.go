@@ -17,7 +17,7 @@ Example:
 	if err != nil {
 		fmt.Printf("Error getting IP address: %s\n", err)
 	} else {
-		fmt.Printf("Public IP address is: %s", myIpAddr)
+		fmt.Printf("Public IP address is: %s\n", myIpAddr)
 	}
 
 	}
