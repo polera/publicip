@@ -32,7 +32,7 @@ import (
 
 func main() {
 
-  myIpAddr, err := GetIP()
+  myIpAddr, err := publicip.GetIP()
   if err != nil {
     fmt.Printf("Error getting IP address: %s", err)
   } else {
