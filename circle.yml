@@ -7,7 +7,8 @@ machine:
 
 dependencies:
   pre:
-    - curl https://glide.sh/get | sh
+    - sudo add-apt-repository ppa:masterminds/glide && sudo apt-get update
+    - sudo apt-get install glide
     - curl -sSL -o go1.7.3.linux-amd64.tar.gz https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz
     - sudo rm -rf /usr/local/go
     - sudo tar -C /usr/local -xzf go1.7.3.linux-amd64.tar.gz
@@ -17,6 +18,6 @@ dependencies:
 
 test:
   override:
-    - cd "${PROJECT_PATH}" && glide up && go test 
+    - cd "${PROJECT_PATH}" && glide install && go test
   post:
     - bash <(curl -s https://codecov.io/bash)
