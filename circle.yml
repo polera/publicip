@@ -18,6 +18,6 @@ dependencies:
 
 test:
   override:
-    - cd "${PROJECT_PATH}" && glide install && go test -race -coverprofile=coverage.txt -covermode=atomic
+    - cd "${PROJECT_PATH}" && glide install && go test -race -coverprofile="${CIRCLE_ARTIFACTS}/coverage.txt" -covermode=atomic
   post:
     - bash <(curl -s https://codecov.io/bash)
