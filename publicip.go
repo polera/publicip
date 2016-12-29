@@ -25,7 +25,6 @@ Example:
 package publicip
 
 import (
-	"errors"
 	"fmt"
 	"log"
 
@@ -49,19 +48,19 @@ func doDNSLookup(config dns.ClientConfig, client *dns.Client, message *dns.Msg) 
 	var err error
 	for _, server := range config.Servers {
 		serverAddr := fmt.Sprintf("%s:%s", server, config.Port)
-		response, _, err := client.Exchange(message, serverAddr)
-		if err != nil {
-			log.Printf("Error on DNS lookup: %s", err)
-			return "", err
+		response, _, cliErr := client.Exchange(message, serverAddr)
+		if cliErr != nil {
+			log.Printf("Error on DNS lookup: %s", cliErr)
+			return "", cliErr
 		}
 		if response.Rcode != dns.RcodeSuccess {
-			errMsg := fmt.Sprintf("DNS call not successful.  Response code: %d", response.Rcode)
-			log.Printf(errMsg)
-			return "", errors.New(errMsg)
-		}
-		for _, answer := range response.Answer {
-			if aRecord, ok := answer.(*dns.A); ok {
-				return aRecord.A.String(), nil
+			err = fmt.Errorf("DNS call not successful.  Response code: %d", response.Rcode)
+			log.Printf(err.Error())
+		} else {
+			for _, answer := range response.Answer {
+				if aRecord, ok := answer.(*dns.A); ok {
+					return aRecord.A.String(), nil
+				}
 			}
 		}
 	}
